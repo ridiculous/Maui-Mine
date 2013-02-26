@@ -42,10 +42,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/resources/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="6" selection-start="437" selection-end="437" vertical-scroll-proportion="0.47803164">
+            <state line="12" column="47" selection-start="560" selection-end="560" vertical-scroll-proportion="0.38490567">
               <folding />
             </state>
           </provider>
@@ -70,13 +70,13 @@
         <option value="$PROJECT_DIR$/app/views/resources/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.less" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/resources/index.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20130226081458_create_locations.rb" />
         <option value="$PROJECT_DIR$/app/models/location.rb" />
         <option value="$PROJECT_DIR$/app/views/resources/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/resources_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/resources.js.coffee" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/views/resources/index.html.erb" />
       </list>
     </option>
   </component>
@@ -883,13 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/resources/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="34" selection-start="951" selection-end="962" vertical-scroll-proportion="0.23018868">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/resources/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="63" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.032075472">
@@ -916,6 +909,13 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="6" selection-start="437" selection-end="437" vertical-scroll-proportion="0.47803164">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/resources/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="47" selection-start="560" selection-end="560" vertical-scroll-proportion="0.38490567">
           <folding />
         </state>
       </provider>
