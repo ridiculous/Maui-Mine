@@ -1,0 +1,72 @@
+<%= form_for @resource, :html => {:class => 'form-horizontal resources'} do |f| %>
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, placeholder: 'Name', :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :url, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :url, placeholder: 'Url', :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label(:tag_list, :class => 'control-label') %>
+      <div class="controls">
+        <%= f.hidden_field(:tag_list, placeholder: 'Tags', class: 'select2-offscreen', id: 'tags_field', style: 'width:92%;') %>
+        <%= hidden_field_tag(:tag_data, @tags.join(',')) %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:add_location, 'Add location', :class => 'control-label no-top-pad') %>
+      <div class="controls">
+        <%= check_box_tag(:add_location, false) %>
+      </div>
+    </div>
+    <div class="toggle-resource-location">
+
+      <%= f.fields_for(:location, @location) do |lf| %>
+          <div class="control-group">
+            <%= lf.label(:address, 'Location', class: 'control-label') %>
+            <div class="controls">
+              <%= lf.text_field(:address, placeholder: 'Street Address', class: 'text_field') %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= lf.label(:region_id, class: 'control-label') %>
+            <div class="controls">
+              <%= lf.select(:region_id, Location::REGIONS.map { |x| [x.name, x.id] }, class: 'text_field') %>
+            </div>
+          </div>
+      <% end %>
+      <div class="control-group">
+        <%= f.label(:use_coordinates, :class => 'control-label no-top-pad') %>
+        <div class="controls">
+          <%= f.check_box :use_coordinates, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="coordinates">
+        <%= f.fields_for(:location, @location) do |lf| %>
+            <div class="control-group">
+              <%= lf.label :latitude, :class => 'control-label' %>
+              <div class="controls">
+                <%= lf.text_field :latitude, :class => 'text_field' %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= lf.label :longitude, :class => 'control-label' %>
+              <div class="controls">
+                <%= lf.text_field :longitude, :class => 'text_field' %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  resources_path, :class => 'btn' %>
+    </div>
+<% end %>
