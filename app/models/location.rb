@@ -34,7 +34,7 @@ class Location < ActiveRecord::Base
   end
 
   def label
-    "#{address}, #{region.try(:name)}"
+    "#{address} #{region.try(:name)}"
   end
 
   class << self

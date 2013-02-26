@@ -54,15 +54,17 @@ class ResourcesController < ApplicationController
     @resource.use_coordinates = resource_params[:use_coordinates]
 
     @location = Location.find_or_initialize_by_address_and_region_id(location_params[:address], location_params[:region_id])
-    @location.zip = @location.region.zip
-    @location.state = 'HI'
 
-    if @resource.use_coordinates
-      @location.latitude = location_params[:latitude]
-      @location.longitude = location_params[:longitude]
+    if @location.address.present?
+      @location.zip = @location.region.zip
+      @location.state = 'HI'
+
+      if @resource.use_coordinates
+        @location.latitude = location_params[:latitude]
+        @location.longitude = location_params[:longitude]
+      end
+      @resource.location = @location
     end
-
-    @resource.location = @location
 
     respond_to do |format|
       if @resource.save
