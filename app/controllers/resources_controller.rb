@@ -25,41 +25,42 @@ class ResourcesController < ApplicationController
     @resource.add_location = !(@resource.location || @resource.build_location).new_record?
 
     if request.post? || request.put?
-      r_param = params[:resource]
-      l_param = r_param[:location]
+      @resource.transaction do
+        r_param = params[:resource]
+        l_param = r_param[:location]
 
-      # set flags from check boxes
-      @resource.add_location = r_param[:add_location] != '0'
-      @resource.add_coordinates = r_param[:add_coordinates] != '0'
+        # set flags from check boxes
+        @resource.add_location = r_param[:add_location] != '0'
+        @resource.add_coordinates = r_param[:add_coordinates] != '0'
 
-      # set resource attributes
-      @resource.name = r_param[:name]
-      @resource.url = r_param[:url]
+        # set resource attributes
+        @resource.name = r_param[:name]
+        @resource.url = r_param[:url]
 
-      # save tags
-      @resource.tag_list = r_param[:tag_list]
+        # save tags
+        @resource.tag_list = r_param[:tag_list]
 
-      if @resource.add_location
-        l_param.delete(*Location.coords) unless @resource.add_coordinates
+        if @resource.add_location
+          l_param = l_param.except(*Location.coords) unless @resource.add_coordinates
 
-        @resource.location = Location.find_or_initialize_by_address_and_region_id(l_param[:address], l_param[:region_id])
-        @resource.location.state = 'HI'
-        @resource.location.set_coords(l_param)
-        @resource.location.save!
-      else
-        @resource.location.try(:destroy) unless Resource.find_all_by_location_id(@resource.location.try(:id))
-        @resource.location = nil
+          @resource.location = Location.find_or_initialize_by_address_and_region_id(l_param[:address], l_param[:region_id])
+          @resource.location.state = 'HI'
+          @resource.location.set_coords(l_param)
+          @resource.location.save!
+        else
+          @resource.location.try(:destroy) unless Resource.find_all_by_location_id(@resource.location.try(:id))
+          @resource.location = nil
+        end
+
+        @resource.save!
+        redirect_to(resources_path, notice: "#{@resource.name} was saved")
       end
-
-      @resource.save!
-      redirect_to(resources_path, notice: "#{@resource.name} was saved")
     end
   rescue
     request.flash[:alert] = 'Try again, minus the errors'
   end
 
   # DELETE /resources/1
-  # DELETE /resources/1.json
   def destroy
     @resource = Resource.find(params[:id])
     @resource.destroy

@@ -10,7 +10,14 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
+//= require jquery17.min.js
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
+//= require select2.js
+//= require select2.min.js
+//= require select2_locale_es.js
+//= require select2_locale_hu.js
+//= require select2_locale_it.js
+//= require jquery.toggle.buttons.js
+//= require maui.js
+//= require resources.js.coffee

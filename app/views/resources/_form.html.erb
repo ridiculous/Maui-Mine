@@ -15,13 +15,6 @@
       <%= f.label(:tag_list, :class => 'control-label') %>
       <div class="controls">
         <%= f.hidden_field(:tag_list, placeholder: 'Tags', class: 'select2-offscreen', id: 'tags_field', style: 'width:92%;') %>
-        <%= hidden_field_tag(:tag_data, @tags.join(',')) %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label(:add_location, 'Add location', :class => 'control-label no-top-pad') %>
-      <div class="controls">
-        <%= f.check_box(:add_location) %>
       </div>
     </div>
     <%= content_tag(:div, class: 'toggle-resource-location') do %>
@@ -39,12 +32,6 @@
               </div>
             </div>
         <% end %>
-        <div class="control-group">
-          <%= f.label(:add_coordinates, :class => 'control-label no-top-pad') %>
-          <div class="controls">
-            <%= f.check_box(:add_coordinates, :class => 'text_field') %>
-          </div>
-        </div>
         <div class="coordinates">
           <%= f.fields_for(:location, @resource.location) do |lf| %>
               <div class="control-group">
@@ -63,9 +50,18 @@
         </div>
     <% end %>
 
-    <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                  resources_path, :class => 'btn' %>
+    <div class="form-actions" style="margin-top: 0;padding-top: 10px;padding-bottom: 10px;">
+      <div id="submit_control">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+      </div>
+      <div id="add_loc" class="toggle-button">
+        <%= f.check_box(:add_location) %>
+      </div>
+      <div id="coords_control">
+        <span id="add_coords" class="toggle-button">
+          <%= f.check_box(:add_coordinates) %>
+        </span>
+      </div>
     </div>
 <% end %>
+<%= hidden_field_tag(:tag_data, @tags.join(',')) %>
