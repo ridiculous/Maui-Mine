@@ -1,8 +1,11 @@
 MauiMine::Application.routes.draw do
   resources :locations
-  resources :resources
+  resources :resources, only: [:index, :destroy]
 
-  root to: 'resources#new'
+  match 'manage/:id' => 'resources#manage'
+  match 'manage' => 'resources#manage'
+
+  root to: 'resources#manage'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

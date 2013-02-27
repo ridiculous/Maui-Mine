@@ -5,7 +5,7 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.all
+    @resources = Resource.order(:name)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,58 +24,44 @@ class ResourcesController < ApplicationController
     end
   end
 
-  # GET /resources/new
-  # GET /resources/new.json
-  def new
-    @resource = Resource.new
-    @location = @resource.build_location
+  def manage
+    @resource = Resource.where(id: params[:id]).first_or_initialize
+    @resource.add_coordinates = @resource.location && @resource.location.coords_set?
+    @resource.add_location = !(@resource.location || @resource.build_location).new_record?
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @resource }
-    end
-  end
+    if request.post? || request.put?
+      r_param = params[:resource]
+      l_param = r_param[:location]
+      @resource.add_location = r_param[:add_location] != '0'
+      @resource.name = r_param[:name]
+      @resource.url = r_param[:url]
+      @resource.tag_list = r_param[:tag_list]
+      @resource.add_coordinates = r_param[:add_coordinates] != '0'
 
-  # GET /resources/1/edit
-  def edit
-    @resource = Resource.find(params[:id])
-  end
+      if @resource.add_location
+        @resource.location = Location.find_or_initialize_by_address_and_region_id(l_param[:address], l_param[:region_id])
+        @resource.location.zip = @resource.location.region.zip
+        @resource.location.state = 'HI'
 
-  # POST /resources
-  # POST /resources.json
-  def create
-    resource_params = params[:resource]
-    location_params = resource_params[:location]
+        if @resource.add_coordinates
+          @resource.location.latitude = l_param[:latitude]
+          @resource.location.longitude = l_param[:longitude]
+        else
+          @resource.location.latitude = nil
+          @resource.location.longitude = nil
+        end
 
-    @resource = Resource.new
-    @resource.name = resource_params[:name]
-    @resource.url = resource_params[:url]
-    @resource.tag_list = resource_params[:tag_list]
-    @resource.use_coordinates = resource_params[:use_coordinates]
-
-    @location = Location.find_or_initialize_by_address_and_region_id(location_params[:address], location_params[:region_id])
-
-    if @location.address.present?
-      @location.zip = @location.region.zip
-      @location.state = 'HI'
-
-      if @resource.use_coordinates
-        @location.latitude = location_params[:latitude]
-        @location.longitude = location_params[:longitude]
-      end
-      @resource.location = @location
-    end
-
-    respond_to do |format|
-      if @resource.save
-        format.html { redirect_to resources_path, notice: 'Resource was successfully created.' }
-        format.json { render json: @resource, status: :created, location: @resource }
+        @resource.location.save!
       else
-        request.flash[:alert] = 'Try again, minus the errors'
-        format.html { render action: "new" }
-        format.json { render json: @resource.errors, status: :unprocessable_entity }
+        @resource.location.try(:destroy) unless Resource.find_all_by_location_id(@resource.location.try(:id))
+        @resource.location = nil
       end
+
+      @resource.save!
+      redirect_to(resources_path, notice: "#{@resource.name} saved")
     end
+  rescue
+    request.flash[:alert] = 'Try again, minus the errors'
   end
 
   # PUT /resources/1

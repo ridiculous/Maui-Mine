@@ -29,12 +29,18 @@ class Location < ActiveRecord::Base
 
   has_many :resources
 
+  validates :address, presence: true
+
   def region
     REGIONS.find { |rn| rn.id == region_id }
   end
 
   def label
     "#{address} #{region.try(:name)}"
+  end
+
+  def coords_set?
+    latitude.present? && longitude.present?
   end
 
   class << self
