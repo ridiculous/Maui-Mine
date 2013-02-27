@@ -52,7 +52,7 @@ jQuery ->
       enabled: '+ coords'
       disabled: '- coords'
     onChange: () ->
-      showCoords {}
+      showCoords()
 
   doToggleButtons(loc_opts, '#add_loc')
   doToggleButtons(coord_opts, '#add_coords')
