@@ -6,6 +6,7 @@ class Resource < ActiveRecord::Base
   belongs_to :location
 
   validates :name, presence: true
+  validates :url, uniqueness: true, allow_blank: true
 
   before_validation :strip_protocol
 

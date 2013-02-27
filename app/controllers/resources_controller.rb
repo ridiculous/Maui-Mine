@@ -5,7 +5,7 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.order(:name)
+    @resources = Resource.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -57,7 +57,7 @@ class ResourcesController < ApplicationController
       end
     end
   rescue
-    request.flash[:alert] = 'Try again, minus the errors'
+    request.flash[:alert] = "Try again, minus the errors. #{@resource.errors.full_messages.first}"
   end
 
   # DELETE /resources/1
