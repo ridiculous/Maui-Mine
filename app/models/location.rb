@@ -31,6 +31,8 @@ class Location < ActiveRecord::Base
 
   validates :address, presence: true
 
+  before_validation :set_zip_from_region
+
   def region
     REGIONS.find { |rn| rn.id == region_id }
   end
@@ -43,9 +45,26 @@ class Location < ActiveRecord::Base
     latitude.present? && longitude.present?
   end
 
+  def set_coords(coords)
+    write_attribute(:latitude, coords[:latitude])
+    write_attribute(:longitude, coords[:longitude])
+  end
+
   class << self
     def coords
       [:latitude, :longitude]
     end
   end
+
+  #
+  # Private
+  #
+
+  private
+
+
+  def set_zip_from_region
+    write_attribute(:zip, region.zip) if region
+  end
+
 end

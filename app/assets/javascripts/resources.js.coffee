@@ -3,30 +3,32 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
   return unless $('#tag_data').length
-  $lat = $('#resource_location_latitude')
-  $lng = $('#resource_location_longitude')
-
-  showCoords = () ->
-    $coords = $('.coordinates');
-    $coords.toggle().find('.control-group').slideToggle(200);
-
-  if $('#resource_add_location').attr('checked')
-    $('.toggle-resource-location').show();
-
-  if $('#resource_add_coordinates').attr('checked')
-    showCoords {}
-
-  navigator.geolocation.getCurrentPosition (data) ->
-    $lat.val(data.coords.latitude) unless $lat.val()
-    $lng.val(data.coords.longitude) unless $lng.val()
 
   $("#tags_field").select2
-    tags: $('#tag_data').val().split(',')
+    tags: $('#tag_data').val().split(',')        # make select box
 
-  $('#resource_location_region_id').select2 {}
+  $('#resource_location_region_id').select2 {}   # make select box
 
-  $('#resource_add_coordinates').on 'click', ->
+  $lat = $('#resource_location_latitude')
+  $lng = $('#resource_location_longitude')
+  $coords = $('.coordinates');
+  $add_location = $('#resource_add_location');
+  $location_box = $('.toggle-resource-location');
+  $add_coords = $('#resource_add_coordinates');
+
+  showCoords = () ->
+    $coords.toggle().find('.control-group').toggle();
+    $lat.val(maui.coords.latitude) unless $lat.val()
+    $lng.val(maui.coords.longitude) unless $lng.val()
+
+  if $add_location.attr('checked')
+    $location_box.show();
+
+  if $add_coords.attr('checked')
     showCoords {}
 
-  $('#resource_add_location').on 'click', ->
-    $('.toggle-resource-location').toggle();
+  $add_coords.on 'click', ->
+    showCoords {}
+
+  $add_location.on 'click', ->
+    $location_box.toggle();

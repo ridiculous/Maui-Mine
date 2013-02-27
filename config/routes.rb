@@ -1,5 +1,4 @@
 MauiMine::Application.routes.draw do
-  resources :locations
   resources :resources, only: [:index, :destroy]
 
   match 'manage/:id' => 'resources#manage'
