@@ -16,7 +16,7 @@
     <file path="/a.dummy" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1361957731402" ignored="false" />
     <file path="/scaffolds.css.less" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1361956282931" ignored="false" />
     <file path="/resources_controller.rb" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1362008505147" ignored="false" />
-    <file path="/application.html.erb" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1361963480606" ignored="false" />
+    <file path="/application.html.erb" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1362008881593" ignored="false" />
     <file path="/Dummy.txt" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1361957331631" ignored="false" />
     <file path="/resource.rb" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1362008446558" ignored="false" />
     <file path="/edit.html.erb" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1361944244541" ignored="false" />
@@ -28,6 +28,8 @@
     <file path="/.gitignore" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1361879755619" ignored="false" />
     <file path="/global.js" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1361957035355" ignored="false" />
     <file path="/maui.js" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1361960108023" ignored="false" />
+    <file path="/bootstrap_flash_helper.rb" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1362008787678" ignored="false" />
+    <file path="/application_helper.rb" changelist="28b7984d-51e9-4fb2-be24-0173b15d7264" time="1362009043590" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +45,26 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="17" selection-start="1420" selection-end="1420" vertical-scroll-proportion="0.4591978">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application_helper.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="17" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -53,8 +74,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.less" />
-        <option value="$PROJECT_DIR$/app/views/resources/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/bootstrap.js.coffee" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/bootstrap-toggle-buttons.css" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/jquery.toggle.buttons.js" />
@@ -62,13 +81,15 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/resources.css.less" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/resources/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/resources.js.coffee" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/maui.js" />
         <option value="$PROJECT_DIR$/app/models/resource.rb" />
         <option value="$PROJECT_DIR$/app/controllers/resources_controller.rb" />
+        <option value="$USER_HOME$/.rvm/gems/ruby-1.9.3-p194@mba/gems/twitter-bootstrap-rails-2.2.4/app/helpers/bootstrap_flash_helper.rb" />
+        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -306,14 +327,14 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
-    <property name="dynamic.classpath" value="false" />
     <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -661,7 +682,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -738,16 +759,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/jquery17.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="29608" selection-start="94847" selection-end="94847" vertical-scroll-proportion="0.095684804" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/jquery.toggle.buttons.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="62" selection-start="4315" selection-end="4315" vertical-scroll-proportion="0.36330935" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="47" selection-start="77" selection-end="84" vertical-scroll-proportion="0.029876977" />
@@ -766,11 +777,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/resources/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="66" column="51" selection-start="2778" selection-end="2778" vertical-scroll-proportion="0.87169814" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="4" selection-start="535" selection-end="535" vertical-scroll-proportion="0.41698113" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/select2.min.js">
@@ -820,6 +826,27 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/resources_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="14" selection-start="1814" selection-end="1814" vertical-scroll-proportion="0.38718292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p194@mba/gems/twitter-bootstrap-rails-2.2.4/app/helpers/bootstrap_flash_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="6" selection-start="87" selection-end="87" vertical-scroll-proportion="0.06809079">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="17" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="17" selection-start="1420" selection-end="1420" vertical-scroll-proportion="0.4591978">
           <folding />
         </state>
       </provider>
