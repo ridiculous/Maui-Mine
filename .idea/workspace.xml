@@ -46,10 +46,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="18" selection-start="658" selection-end="658" vertical-scroll-proportion="0.37258348">
+            <state line="27" column="25" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="maui.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/maui.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="32" selection-end="32" vertical-scroll-proportion="0.11950791">
               <folding />
             </state>
           </provider>
@@ -74,13 +83,13 @@
         <option value="$PROJECT_DIR$/app/views/resources/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/resources.js.coffee" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/maui.js" />
         <option value="$PROJECT_DIR$/app/models/resource.rb" />
         <option value="$PROJECT_DIR$/app/controllers/resources_controller.rb" />
         <option value="$USER_HOME$/.rvm/gems/ruby-1.9.3-p194@mba/gems/twitter-bootstrap-rails-2.2.4/app/helpers/bootstrap_flash_helper.rb" />
         <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/maui.js" />
       </list>
     </option>
   </component>
@@ -119,14 +128,14 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
-    <property name="dynamic.classpath" value="false" />
     <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -596,11 +605,6 @@
         <state line="15" column="29" selection-start="683" selection-end="683" vertical-scroll-proportion="0.44815466" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/maui.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="34" selection-start="103" selection-end="103" vertical-scroll-proportion="0.11348464" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/resource.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="53" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0" />
@@ -628,7 +632,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="18" selection-start="658" selection-end="658" vertical-scroll-proportion="0.37258348">
+        <state line="27" column="25" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/maui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="32" selection-end="32" vertical-scroll-proportion="0.11950791">
           <folding />
         </state>
       </provider>

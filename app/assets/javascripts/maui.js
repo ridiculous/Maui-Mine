@@ -2,8 +2,8 @@ var maui = {
     coords: {}
 };
 
-// dont need the coords on list page
-if (window.location.pathname === '/manage') {
+// get the coords if we are on the new/edit page ... root is also the new page
+if (window.location.pathname === '/manage' || window.location.pathname == '/') {
     navigator.geolocation.getCurrentPosition(function (data) {
         if (window.console) console.log(data.coords);
         maui.coords = data.coords;
