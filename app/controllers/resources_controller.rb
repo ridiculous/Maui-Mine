@@ -71,6 +71,6 @@ class ResourcesController < ApplicationController
   private
 
   def set_tags
-    @tags ||= ActsAsTaggableOn::Tag.all.map { |t| t.name.titleize }
+    @tags ||= ActsAsTaggableOn::Tag.all.map(&:name)
   end
 end

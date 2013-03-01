@@ -21,3 +21,5 @@
 //= require jquery.toggle.buttons.js
 //= require maui.js
 //= require resources.js.coffee
+//= require jquery.main.js
+
