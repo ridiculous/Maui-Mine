@@ -2,19 +2,19 @@
     <div class="control-group">
       <%= f.label :name, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :name, placeholder: 'Name', :class => 'text_field' %>
+        <%= f.text_field :name, :class => 'text_field' %>
       </div>
     </div>
     <div class="control-group">
       <%= f.label :url, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :url, placeholder: 'Url', :class => 'text_field' %>
+        <%= f.text_field :url, :class => 'text_field' %>
       </div>
     </div>
     <div class="control-group">
       <%= f.label(:tag_list, :class => 'control-label') %>
       <div class="controls">
-        <%= f.hidden_field(:tag_list, placeholder: 'Tags', class: 'select2-offscreen', id: 'tags_field', style: 'width:92%;') %>
+        <%= f.hidden_field(:tag_list, class: 'select2-offscreen', id: 'tags_field', style: 'width:92%;') %>
       </div>
     </div>
     <%= content_tag(:div, class: 'toggle-resource-location') do %>
@@ -22,7 +22,7 @@
             <div class="control-group">
               <%= lf.label(:address, 'Location', class: 'control-label') %>
               <div class="controls">
-                <%= lf.text_field(:address, placeholder: 'Street Address', class: 'text_field') %>
+                <%= lf.text_field(:address, class: 'text_field') %>
               </div>
             </div>
             <div class="control-group">
