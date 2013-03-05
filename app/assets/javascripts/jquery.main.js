@@ -1,18 +1,13 @@
 // page init
 jQuery(function(){
-	initSlideShow();
-	initInputs();
-	initDropDownClasses();
-	initMenuDropDown();
 	initNavigation();
-	// initTouchNav();
 });
 
 function initNavigation() {
 	var activeClass = 'active';
 	var hoverClass = 'hover';
 	var nav = jQuery('#nav');
-	var allItems = nav.find('>li')
+	var allItems = nav.find('>li');
 	var items = nav.find('.has-drop-down');
 	var activeItem = allItems.filter('.active');
 	items.each(function() {
@@ -32,7 +27,7 @@ function initNavigation() {
 					// drop.css({
 						// top: '100%'
 					// });
-					
+
 				// } else {
 					// if(!item.hasClass(hoverClass)) {
 						// activeItem.addClass('hide');
@@ -63,7 +58,7 @@ function initNavigation() {
 					activeItem.addClass('hide');
 				}
 			});
-			
+
 		}
 	});
 	if(!(isTouchDevice || navigator.msPointerEnabled)) {
@@ -80,7 +75,7 @@ function initNavigation() {
 			}
 		});
 	}
-	
+
 	jQuery('body').bind(navigator.msPointerEnabled ? 'click' : 'touchstart', function(e){
 		var targ = jQuery(e.target);
 		if(targ.hasClass('drop') || targ.parents('.drop').length || targ.hasClass('has-drop-down-a') || targ.is(items) || targ.closest(items)) return;
@@ -99,71 +94,6 @@ var isTouchDevice = (function() {
         return false;
     }
 }());
-
-
-// handle dropdowns on mobile devices
-function initTouchNav() {
-	lib.each(lib.queryElementsBySelector('#nav'), function(){
-		new TouchNav({
-			navBlock: this
-		});
-	});
-}
-
-// fade gallery init
-function initSlideShow() {
-	jQuery('div.main-gallery').fadeGallery({
-		slides: '.slides li',
-		btnPrev: 'a.btn-prev',
-		btnNext: 'a.btn-next',
-		generatePagination: '.switcher',
-		event: 'click',
-		autoRotation: true,
-		switchTime: 20000,
-		animSpeed: 1000
-	});
-}
-
-// clear inputs on focus
-function initInputs() {
-	PlaceholderInput.replaceByOptions({
-		// filter options
-		clearInputs: true,
-		clearTextareas: true,
-		clearPasswords: true,
-		skipClass: 'default',
-		
-		// input options
-		wrapWithElement: false,
-		showUntilTyping: false,
-		getParentByClass: false,
-		placeholderAttr: 'value'
-	});
-}
-
-// add classes if item has dropdown
-function initDropDownClasses() {
-	jQuery('#nav li').each(function() {
-		var item = jQuery(this);
-		var drop = item.find('ul');
-		var link = item.find('a').eq(0);
-		if(drop.length) {
-			item.addClass('has-drop-down');
-			if(link.length) link.addClass('has-drop-down-a');
-		}
-	});
-}
-
-// init dropdown positioning
-function initMenuDropDown() {
-	initNav({
-		menuId: 'nav',
-		sideClasses: true,
-		flexibility: true,
-		center: true,
-		cleverMode: true
-	});
-}
 
 // navigation accesibility module
 function TouchNav(opt) {
@@ -573,12 +503,12 @@ lib = {
 			this.btnPrev = this.gallery.find(this.options.btnPrev);
 			this.btnNext = this.gallery.find(this.options.btnNext);
 			this.currentIndex = 0;
-			
+
 			// disable fade effect in old IE
 			if(this.options.disableFadeIE && $.browser.msie && $.browser.version < 9) {
 				this.options.animSpeed = 0;
 			}
-			
+
 			// create gallery pagination
 			if(typeof this.options.generatePagination === 'string') {
 				this.pagerHolder = this.gallery.find(this.options.generatePagination).empty();
@@ -590,23 +520,23 @@ lib = {
 			} else {
 				this.pagerLinks = this.gallery.find(this.options.pagerLinks);
 			}
-			
+
 			// get start index
 			var activeSlide = this.slides.filter('.'+this.options.activeClass);
 			if(activeSlide.length) {
 				this.currentIndex = this.slides.index(activeSlide);
 			}
 			this.prevIndex = this.currentIndex;
-			
+
 			// autorotation control buttons
 			this.btnPlay = this.gallery.find(this.options.btnPlay);
 			this.btnPause = this.gallery.find(this.options.btnPause);
 			this.btnPlayPause = this.gallery.find(this.options.btnPlayPause);
-			
+
 			// misc elements
 			this.curNum = this.gallery.find(this.options.currentNumber);
 			this.allNum = this.gallery.find(this.options.totalNumber);
-			
+
 			// handle flexible layout
 			$(window).bind('load resize orientationchange', $.proxy(this.onWindowResize, this));
 		},
@@ -640,7 +570,7 @@ lib = {
 					e.preventDefault();
 				});
 			});
-			
+
 			// autorotation buttons handler
 			this.btnPlay.bind(this.options.event, function(e){
 				self.startRotation();
@@ -672,7 +602,7 @@ lib = {
 					}
 				});
 			}
-			
+
 			// pause on hover handling
 			if(this.options.pauseOnHover) {
 				this.gallery.hover(function(){
@@ -733,7 +663,7 @@ lib = {
 				} else {
 					this.slides.eq(this.prevIndex).stop().animate({opacity:0},{duration: this.options.animSpeed});
 				}
-				
+
 				this.switchNext = function() {
 					if(!self.options.animSpeed) {
 						self.slides.eq(self.currentIndex).css({opacity:''});
@@ -744,12 +674,12 @@ lib = {
 						self.slides.eq(self.currentIndex).css({opacity:''});
 						self.galleryAnimating = false;
 						self.autoRotate();
-						
+
 						// onchange callback
 						self.makeCallback('onChange', self);
 					}, self.options.animSpeed);
 				}
-				
+
 				if(this.options.switchSimultaneously) {
 					self.switchNext();
 				} else {
@@ -759,7 +689,7 @@ lib = {
 					}, this.options.animSpeed);
 				}
 				this.refreshState();
-				
+
 				// onchange callback
 				this.makeCallback('onBeforeChange', this);
 			}
@@ -769,7 +699,7 @@ lib = {
 			this.pagerLinks.removeClass(this.options.activeClass).eq(this.currentIndex).addClass(this.options.activeClass);
 			this.curNum.html(this.currentIndex+1);
 			this.allNum.html(this.stepsCount);
-			
+
 			// initial refresh
 			if(this.options.autoHeight) {
 				if(initial) {
@@ -778,7 +708,7 @@ lib = {
 					this.slidesHolder.stop().animate({height: this.slides.eq(this.currentIndex).outerHeight(true)}, {duration: this.options.animSpeed});
 				}
 			}
-			
+
 			// disabled state
 			if(!this.options.circularRotation) {
 				this.btnPrev.add(this.btnNext).removeClass(this.options.disabledClass);
@@ -871,7 +801,7 @@ PlatformDetect = (function(){
 					document.write(cssText);
 				}
 			}
-			
+
 			if(rule.meta) {
 				if(head) {
 					fragment = document.createElement('div');
@@ -1109,7 +1039,7 @@ PlatformDetect.addRule({type: 'winphone', css: 'winphone.css'});
 				this.fakeElement.style.color = getStyle(this.element, 'color');
 				this.fakeElement.style.position = 'absolute';
 				this.element.parentNode.insertBefore(this.fakeElement, this.element);
-				
+
 				if(this.element.value === this.origValue || !this.element.value) {
 					this.element.value = '';
 					this.togglePlaceholderText(true);
@@ -1223,7 +1153,7 @@ PlatformDetect.addRule({type: 'winphone', css: 'winphone.css'});
 			if(!el) return; else if(state) addClass(el,cls); else removeClass(el,cls);
 		}
 	};
-	
+
 	// utility functions
 	function convertToArray(collection) {
 		var arr = [];
@@ -1306,7 +1236,7 @@ function initNav(o) {
 					d.style.right = "auto";
 					d.style.left = li[i].parentNode.offsetWidth + "px";
 					d.parentNode.className += " left-side";
-				}	
+				}
 				else if(li[i].parentNode != n && (o.cleverMode || fPX(li[i]) >= t))
 				{
 					d.style.left = "auto";
