@@ -15,6 +15,6 @@ class Resource < ActiveRecord::Base
   private
 
   def strip_protocol
-    url.sub!(%r|\Ahttp://|, '') if url
+    url.sub!(%r{\Ahttp://|/\z}, '') if url
   end
 end
